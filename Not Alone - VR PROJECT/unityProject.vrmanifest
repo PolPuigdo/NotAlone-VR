@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.notalonevrproject.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\polpu\\Desktop\\Proyecto\\Not Alone - VR PROJECT\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "Not Alone - VR PROJECT [Testing]"
+        }
+      }
+    }
+  ]
+}
