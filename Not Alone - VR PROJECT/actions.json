@@ -41,12 +41,17 @@
       "requirement": "optional"
     },
     {
+      "name": "/actions/default/in/Movement",
+      "type": "vector2"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
     {
       "name": "/actions/platformer/in/Move",
-      "type": "vector2"
+      "type": "vector2",
+      "requirement": "suggested"
     },
     {
       "name": "/actions/platformer/in/Jump",
@@ -81,7 +86,7 @@
     },
     {
       "name": "/actions/platformer",
-      "usage": "single"
+      "usage": "leftright"
     },
     {
       "name": "/actions/buggy",
