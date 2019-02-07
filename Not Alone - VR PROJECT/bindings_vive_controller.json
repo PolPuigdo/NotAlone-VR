@@ -112,6 +112,9 @@
                "inputs" : {
                   "click" : {
                      "output" : "/actions/default/in/teleport"
+                  },
+                  "long" : {
+                     "output" : "/actions/default/in/presstouchpad"
                   }
                },
                "mode" : "button",
@@ -171,6 +174,9 @@
                "inputs" : {
                   "click" : {
                      "output" : "/actions/default/in/teleport"
+                  },
+                  "long" : {
+                     "output" : "/actions/default/in/presstouchpad"
                   }
                },
                "mode" : "button",
