@@ -24,17 +24,25 @@ public class Hand : MonoBehaviour
     private void Update()
     {
 
-        //Down (Click to grab)
+        //Makes it: click pickup/drop
         if (grabAction.GetLastStateDown(pose.inputSource))
         {
-            PickUp();
+            if (currentInteractable == null) //On click if it has no value picks the object
+            {
+                PickUp();
+            } else // If it has a value (an object held) it drops it
+            {
+                Drop();
+            }
+            
         }
 
+        /*
         //Up (No-Click to drop) GONNA BE CHANGED
         if (grabAction.GetLastStateUp(pose.inputSource))
         {
             Drop();
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
