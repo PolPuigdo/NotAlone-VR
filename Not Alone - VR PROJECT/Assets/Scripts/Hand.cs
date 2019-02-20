@@ -5,8 +5,8 @@ using Valve.VR;
 
 public class Hand : MonoBehaviour
 {
-
     public SteamVR_Action_Boolean grabAction = null;
+    public SteamVR_Action_Boolean triggerAction = null;
 
     private SteamVR_Behaviour_Pose pose = null;
     private FixedJoint joint = null;
@@ -36,6 +36,14 @@ public class Hand : MonoBehaviour
             }
             
         }
+        if (currentInteractable != null)
+        {
+            if (triggerAction.GetStateDown(pose.inputSource))
+            {
+                currentInteractable.Light();
+            }
+        }
+        
 
         
     }
