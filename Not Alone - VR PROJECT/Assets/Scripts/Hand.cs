@@ -37,12 +37,7 @@ public class Hand : MonoBehaviour
             
         }
 
-        /*
-        //Up (No-Click to drop) GONNA BE CHANGED
-        if (grabAction.GetLastStateUp(pose.inputSource))
-        {
-            Drop();
-        }*/
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -75,7 +70,7 @@ public class Hand : MonoBehaviour
             currentInteractable.activeHand.Drop();
 
         // Set the position to the same as the controller
-        currentInteractable.transform.position = transform.position;
+        currentInteractable.ApplyOffset(transform);
 
         // Atach the object
         Rigidbody targetBody = currentInteractable.GetComponent<Rigidbody>();
