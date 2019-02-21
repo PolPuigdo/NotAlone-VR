@@ -27,10 +27,13 @@ public class Hand : MonoBehaviour
         //Makes it: click pickup/drop
         if (grabAction.GetLastStateDown(pose.inputSource))
         {
-            if (currentInteractable == null) //On click if it has no value picks the object
+            //On click if it has no value picks the object
+            if (currentInteractable == null) 
             {
                 PickUp();
-            } else // If it has a value (an object held) it drops it
+            }
+            // If it has a value (an object held) it drops it
+            else
             {
                 Drop();
             }
@@ -38,7 +41,7 @@ public class Hand : MonoBehaviour
         }
         if (currentInteractable != null)
         {
-            if (triggerAction.GetStateDown(pose.inputSource))
+            if (triggerAction.GetStateDown(pose.inputSource)) //Trigger calls Light method
             {
                 currentInteractable.Light();
             }
