@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PickDrop
+  - Door
   layers:
   - Default
   - TransparentFX

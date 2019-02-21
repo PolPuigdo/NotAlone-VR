@@ -7,12 +7,15 @@ public class Hand : MonoBehaviour
 {
     public SteamVR_Action_Boolean grabAction = null;
     public SteamVR_Action_Boolean triggerAction = null;
+    public SteamVR_Action_Boolean doorTrigger = null;
 
     private SteamVR_Behaviour_Pose pose = null;
     private FixedJoint joint = null;
 
     private PickDrop currentInteractable = null;
     private List<PickDrop> interactables = new List<PickDrop>();
+
+    private Door doorInteracatble = null;
 
     private void Awake()
     {
@@ -23,7 +26,6 @@ public class Hand : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-
         //Makes it: click pickup/drop
         if (grabAction.GetLastStateDown(pose.inputSource))
         {
@@ -48,23 +50,37 @@ public class Hand : MonoBehaviour
         }
         
 
+        if (doorTrigger.GetStateDown(pose.inputSource))
+        {
+            doorInteracatble.DoorAction();
+        }
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("PickDrop"))
-            return;
+        if (other.gameObject.CompareTag("PickDrop"))
+        {
+            interactables.Add(other.gameObject.GetComponent<PickDrop>());
+        }
 
-        interactables.Add(other.gameObject.GetComponent<PickDrop>());
+        if (other.gameObject.CompareTag("Door"))
+        {
+            doorInteracatble = other.gameObject.GetComponent<Door>();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.gameObject.CompareTag("PickDrop"))
-            return;
-
-        interactables.Remove(other.gameObject.GetComponent<PickDrop>());
+        if (other.gameObject.CompareTag("PickDrop"))
+        {
+            interactables.Remove(other.gameObject.GetComponent<PickDrop>());
+        }
+        
+        if (other.gameObject.CompareTag("Door"))
+        {
+            doorInteracatble = null;
+        }
     }
 
     public void PickUp()

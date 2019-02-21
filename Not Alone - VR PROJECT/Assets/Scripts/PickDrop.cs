@@ -18,15 +18,15 @@ public class PickDrop : MonoBehaviour
         lightF.SetActive(false); //Sets the light off by default
     }
 
-    public virtual void Light() //Turns on light
+    public virtual void Light() //Turns on/off the light
     {
         if (!isOn)
         {
-            lightF.SetActive(true);
+            lightF.SetActive(true); //ON
             isOn = true;
         } else
         {
-            lightF.SetActive(false);
+            lightF.SetActive(false); //OFF
             isOn = false;
         }
 
