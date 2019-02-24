@@ -33,6 +33,7 @@ public class Door : MonoBehaviour
         {
             audioDoor[2].Play();
         }
+        
     }
 
     // Update is called once per frame
