@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 726114344}
   - component: {fileID: 726114342}
   m_Layer: 0
-  m_Name: Wall_DOOR 1
+  m_Name: Wall_DOOR_withCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1594,9 +1594,6 @@ GameObject:
   - component: {fileID: 1136203575}
   - component: {fileID: 1136203579}
   - component: {fileID: 1136203578}
-  - component: {fileID: 1136203572}
-  - component: {fileID: 1136203573}
-  - component: {fileID: 1136203574}
   m_Layer: 0
   m_Name: Wall_door_collider
   m_TagString: Untagged
@@ -3111,45 +3108,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!65 &1136203572
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136203571}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 2.7504077, z: 4.45}
-  m_Center: {x: 0.12, y: 1.304204, z: 6.71}
---- !u!65 &1136203573
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136203571}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.53, z: 9.989827}
-  m_Center: {x: 0.13, y: 2.39, z: 3.9949136}
---- !u!65 &1136203574
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136203571}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.25, y: 2.7504077, z: 4.36}
-  m_Center: {x: 0.13, y: 1.304204, z: 1.18}
 --- !u!1 &1456126053
 GameObject:
   m_ObjectHideFlags: 0
