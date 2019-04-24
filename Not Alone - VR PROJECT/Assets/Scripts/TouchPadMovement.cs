@@ -20,7 +20,7 @@ public class TouchPadMovement : MonoBehaviour
             
                 // Move 
                 player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement in x and y
-                player.transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z); //Set the player in the ground
+                player.transform.position = new Vector3(player.transform.position.x, 20, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
 
                 if (!GetComponent<AudioSource>().isPlaying && SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
                 {
