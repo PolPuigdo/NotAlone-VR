@@ -89,6 +89,7 @@
     <None Include="Assets\Water\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
     <None Include="Assets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
+    <None Include="Assets\furniture\3d\Materials\Color Selection.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
     <None Include="Assets\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
