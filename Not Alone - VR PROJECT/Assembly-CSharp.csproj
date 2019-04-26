@@ -95,6 +95,7 @@
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
     <None Include="Assets\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
+    <None Include="Assets\OldRadio\Okean\ReadMe.txt" />
     <None Include="Assets\Environment\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
     <None Include="Assets\bath closet\archibase.net.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
