@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\Scripts\PickDrop.cs" />
     <Compile Include="Assets\Scripts\TouchPadMovement.cs" />
+    <Compile Include="Assets\TheGamingPeople\Scripts\CameraController.cs" />
     <Compile Include="Assets\Water\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
@@ -94,6 +95,7 @@
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
     <None Include="Assets\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
+    <None Include="Assets\Environment\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
     <None Include="Assets\bath closet\archibase.net.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
     <None Include="Assets\ProCore\ProBuilder\readme.txt" />
