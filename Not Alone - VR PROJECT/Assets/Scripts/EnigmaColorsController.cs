@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnigmaColorsController : MonoBehaviour
 {
-    public string codeColor = "";
+    private string codeColor = "";
     private string correctCode = "BlueGreenBlueRedGreen";
     private AudioSource correctSound;
 
