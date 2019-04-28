@@ -60,18 +60,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Map\GarageGarden ToolsObjects\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Map\Water\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Misc\HueCube.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Procedural Mesh\ExtrudeRandomEdges.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Runtime Editing\RuntimeEdit.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
+    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\EnigmaColorsController.cs" />
+    <Compile Include="Assets\Scripts\FlashLightController.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
-    <Compile Include="Assets\Scripts\PickDrop.cs" />
+    <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
+    <Compile Include="Assets\Scripts\RadioController.cs" />
     <Compile Include="Assets\Scripts\TouchPadMovement.cs" />
-    <Compile Include="Assets\TheGamingPeople\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Water\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
@@ -87,20 +91,19 @@
     <None Include="Assets\ProCore\ProBuilder\About\ThirdPartyLicenses.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitVertexColor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_FacePicker.shader" />
-    <None Include="Assets\Water\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
+    <None Include="Assets\Map\Water\Standard Assets\Environment\Water (Basic)\Shaders\FXWaterBasic.shader" />
     <None Include="Assets\ProCore\ProBuilder\About\Font\SIL Open Font License.txt" />
     <None Include="Assets\ProCore\ProBuilder\About\pc_AboutEntry_ProBuilder.txt" />
-    <None Include="Assets\furniture\3d\Materials\Color Selection.shader" />
-    <None Include="Assets\wardrobe\archibase.net.txt" />
+    <None Include="Assets\Map\Coaches Sofas\3d\Materials\Color Selection.shader" />
+    <None Include="Assets\Map\Wardrobe\archibase.net.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_VertexShader.shader" />
-    <None Include="Assets\Doors\Shader\BloodyDoor.shader" />
+    <None Include="Assets\Map\Doors\Shader\BloodyDoor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_NormalPreview.shader" />
-    <None Include="Assets\OldRadio\Okean\ReadMe.txt" />
-    <None Include="Assets\Environment\Contractors\RuinedCar\Shaders\Normal-BumpSpec.shader" />
-    <None Include="Assets\bath closet\archibase.net.txt" />
+    <None Include="Assets\Map\Abandoned Car\Shaders\Normal-BumpSpec.shader" />
+    <None Include="Assets\Map\Big Closet\archibase.net.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
     <None Include="Assets\ProCore\ProBuilder\readme.txt" />
-    <None Include="Assets\Rusty Flashlight\README.txt" />
+    <None Include="Assets\Map\Rusty Flashlight\README.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Usuario/Desktop/Proyecto/NotAlone-VR/Not Alone - VR PROJECT/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

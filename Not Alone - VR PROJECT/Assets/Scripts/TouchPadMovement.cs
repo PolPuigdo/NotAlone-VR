@@ -12,24 +12,21 @@ public class TouchPadMovement : MonoBehaviour
     // Executes once per frame
     void Update()
     {
-        do
-        {
+        //do
+        //{
             //Read the touchpad values
             Vector2 touchpad = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
 
-            
-                // Move 
-                player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement in x and y
-                player.transform.position = new Vector3(player.transform.position.x, 20, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
+            // Move 
+            player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement on x and y
+            player.transform.position = new Vector3(player.transform.position.x, 20, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
 
-                if (!GetComponent<AudioSource>().isPlaying && SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
-                {
-                    PlayFootSteps();
-                }
-            
-            
+            if (!GetComponent<AudioSource>().isPlaying && SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
+            {
+                PlayFootSteps();
+            }
 
-        } while (SteamVR_Actions._default.PressTouchPad.GetStateUp(SteamVR_Input_Sources.Any)); //while the touchpad detects the finger(touch)
+        //} while (SteamVR_Actions._default.PressTouchPad.GetStateUp(SteamVR_Input_Sources.Any)); //while the touchpad detects the finger(touch)
     }
 
 

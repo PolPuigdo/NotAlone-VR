@@ -8,14 +8,19 @@ public class Hand : MonoBehaviour
     public SteamVR_Action_Boolean grabAction = null;
     public SteamVR_Action_Boolean triggerAction = null;
     public SteamVR_Action_Boolean doorTrigger = null;
+    public SteamVR_Action_Boolean colorButtonTrigger = null;
 
     private SteamVR_Behaviour_Pose pose = null;
     private FixedJoint joint = null;
 
-    private PickDrop currentInteractable = null;
-    private List<PickDrop> interactables = new List<PickDrop>();
+    private FlashLightController flashLightInteractable = null;
+    private List<FlashLightController> flashInteractables = new List<FlashLightController>();
+
+    private ObjectPickUpAble objectInteractable = null;
+    private List<ObjectPickUpAble> objectInteractables = new List<ObjectPickUpAble>();
 
     private Door doorInteracatble = null;
+    private Button buttonInteracatble = null;
 
     private void Awake()
     {
@@ -30,111 +35,207 @@ public class Hand : MonoBehaviour
         if (grabAction.GetLastStateDown(pose.inputSource))
         {
             //On click if it has no value picks the object
-            if (currentInteractable == null) 
+            if (flashLightInteractable == null) 
             {
-                PickUp();
+                PickUpFlashLight();
             }
             // If it has a value (an object held) it drops it
             else
             {
-                Drop();
+                DropFlashLight();
             }
             
         }
-        if (currentInteractable != null)
+
+        if (flashLightInteractable != null)
         {
             if (triggerAction.GetStateDown(pose.inputSource)) //Trigger calls Light method
             {
-                currentInteractable.Light();
+                flashLightInteractable.changeLight();
             }
         }
-        
 
-        if (doorTrigger.GetStateDown(pose.inputSource))
+        if (doorTrigger.GetStateDown(pose.inputSource) && doorInteracatble != null)
         {
             doorInteracatble.DoorAction();
+
+            doorInteracatble = null;
         }
         
+        if (colorButtonTrigger.GetStateDown(pose.inputSource) && buttonInteracatble != null)
+        {
+            buttonInteracatble.setColorToCode();
+
+            buttonInteracatble = null;
+        }
+
+        if (grabAction.GetStateDown(pose.inputSource) && objectInteractable != null)
+        {
+            if (objectInteractable == null)
+            {
+                PickUpObject();
+            }
+            else
+            {
+                DropFlashLight();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("FlashLight"))
+        {
+            flashInteractables.Add(other.gameObject.GetComponent<FlashLightController>());
+        }
+
         if (other.gameObject.CompareTag("PickDrop"))
         {
-            interactables.Add(other.gameObject.GetComponent<PickDrop>());
+            objectInteractables.Add(other.gameObject.GetComponent<ObjectPickUpAble>());
         }
 
         if (other.gameObject.CompareTag("Door"))
         {
             doorInteracatble = other.gameObject.GetComponent<Door>();
         }
+
+        if (other.gameObject.CompareTag("Button"))
+        {
+            buttonInteracatble = other.gameObject.GetComponent<Button>();
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("FlashLight"))
+        {
+            flashInteractables.Remove(other.gameObject.GetComponent<FlashLightController>());
+        }
+
         if (other.gameObject.CompareTag("PickDrop"))
         {
-            interactables.Remove(other.gameObject.GetComponent<PickDrop>());
+            objectInteractables.Remove(other.gameObject.GetComponent<ObjectPickUpAble>());
         }
-        
+
         if (other.gameObject.CompareTag("Door"))
         {
             doorInteracatble = null;
         }
     }
 
-    public void PickUp()
+    public void PickUpFlashLight()
     {
         // Get the nearest one
-        currentInteractable = GetNearestObject();
+        flashLightInteractable = GetNearestFlashLight();
 
         // Check if it's null
-        if (!currentInteractable)
+        if (!flashLightInteractable)
             return;
 
         // Check if it's already held
-        if (currentInteractable.activeHand)
-            currentInteractable.activeHand.Drop();
+        if (flashLightInteractable.activeHand)
+            flashLightInteractable.activeHand.DropFlashLight();
 
         // Set the position to the same as the controller
-        currentInteractable.ApplyOffset(transform);
+        flashLightInteractable.ApplyOffset(transform);
 
         // Atach the object
-        Rigidbody targetBody = currentInteractable.GetComponent<Rigidbody>();
+        Rigidbody targetBody = flashLightInteractable.GetComponent<Rigidbody>();
         joint.connectedBody = targetBody;
 
         //Set this hand to active
-        currentInteractable.activeHand = this;
+        flashLightInteractable.activeHand = this;
     }
 
-    public void Drop()
+    public void PickUpObject()
+    {
+        // Get the nearest one
+        objectInteractable = GetNearestObject();
+
+        // Check if it's null
+        if (!objectInteractable)
+            return;
+
+        // Check if it's already held
+        if (objectInteractable.activeHand)
+            objectInteractable.activeHand.DropFlashLight();
+
+        // Set the position to the same as the controller
+        objectInteractable.ApplyOffset(transform);
+
+        // Atach the object
+        Rigidbody targetBody = objectInteractable.GetComponent<Rigidbody>();
+        joint.connectedBody = targetBody;
+
+        //Set this hand to active
+        objectInteractable.activeHand = this;
+    }
+
+    public void DropFlashLight()
     {
         // Check if it's null
-        if (!currentInteractable)
+        if (!flashLightInteractable)
             return;
 
         // Apply the velocity
-        Rigidbody targetBody = currentInteractable.GetComponent<Rigidbody>();
+        Rigidbody targetBody = flashLightInteractable.GetComponent<Rigidbody>();
         targetBody.velocity = pose.GetVelocity();
         targetBody.angularVelocity = pose.GetAngularVelocity();
 
         // Detach nad set variables to null
         joint.connectedBody = null;
-        currentInteractable.activeHand = null;
-        currentInteractable = null;
+        flashLightInteractable.activeHand = null;
+        flashLightInteractable = null;
     }
 
-    private PickDrop GetNearestObject()
+    public void DropObject()
     {
-        PickDrop nearest = null;
+        // Check if it's null
+        if (!objectInteractable)
+            return;
+
+        // Apply the velocity
+        Rigidbody targetBody = objectInteractable.GetComponent<Rigidbody>();
+        targetBody.velocity = pose.GetVelocity();
+        targetBody.angularVelocity = pose.GetAngularVelocity();
+
+        // Detach nad set variables to null
+        joint.connectedBody = null;
+        objectInteractable.activeHand = null;
+        objectInteractable = null;
+    }
+
+    private FlashLightController GetNearestFlashLight()
+    {
+        FlashLightController nearest = null;
         float minDistance = float.MaxValue;
         float distance = 0.0f;
 
-        foreach(PickDrop interactable in interactables)
+        foreach(FlashLightController interactable in flashInteractables)
         {
             distance = (interactable.transform.position - transform.position).sqrMagnitude;
 
             if(distance < minDistance)
+            {
+                minDistance = distance;
+                nearest = interactable;
+            }
+        }
+
+        return nearest;
+    }
+
+    private ObjectPickUpAble GetNearestObject()
+    {
+        ObjectPickUpAble nearest = null;
+        float minDistance = float.MaxValue;
+        float distance = 0.0f;
+
+        foreach (ObjectPickUpAble interactable in objectInteractables)
+        {
+            distance = (interactable.transform.position - transform.position).sqrMagnitude;
+
+            if (distance < minDistance)
             {
                 minDistance = distance;
                 nearest = interactable;

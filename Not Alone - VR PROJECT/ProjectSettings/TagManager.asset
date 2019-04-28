@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PickDrop
   - Door
+  - Button
+  - Cassete
+  - FlashLight
   layers:
   - Default
   - TransparentFX

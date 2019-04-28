@@ -302,3 +302,9 @@ C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\obj\Debug\S
 C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\obj\Debug\SteamVR_Windows_EditorHelper.csproj.CopyComplete
 C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\obj\Debug\SteamVR_Windows_EditorHelper.dll
 C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\obj\Debug\SteamVR_Windows_EditorHelper.pdb
+C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\Temp\bin\Debug\KdTreeLib.dll
+C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\Temp\bin\Debug\pb_Stl.dll
+C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\Temp\bin\Debug\Poly2Tri.dll
+C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\Temp\bin\Debug\ProBuilderCore-Unity5.dll
+C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\Temp\bin\Debug\ProBuilderEditor-Unity5.dll
+C:\Users\Usuario\Desktop\Proyecto\NotAlone-VR\Not Alone - VR PROJECT\Temp\bin\Debug\ProBuilderMeshOps-Unity5.dll
