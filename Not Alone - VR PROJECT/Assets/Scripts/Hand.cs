@@ -19,8 +19,9 @@ public class Hand : MonoBehaviour
     private ObjectPickUpAble objectInteractable = null;
     private List<ObjectPickUpAble> objectInteractables = new List<ObjectPickUpAble>();
 
-    private Door doorInteracatble = null;
-    private Button buttonInteracatble = null;
+    private Door doorInteractable = null;
+    private Button buttonInteractable = null;
+    private Radio radioInteractable = null;
 
     Collider controllerCollider;
 
@@ -62,18 +63,18 @@ public class Hand : MonoBehaviour
             }
         }
 
-        if (doorTrigger.GetStateDown(pose.inputSource) && doorInteracatble != null)
+        if (doorTrigger.GetStateDown(pose.inputSource) && doorInteractable != null)
         {
-            doorInteracatble.DoorAction();
+            doorInteractable.DoorAction();
 
-            doorInteracatble = null;
+            //doorInteractable = null;
         }
         
-        if (colorButtonTrigger.GetStateDown(pose.inputSource) && buttonInteracatble != null)
+        if (colorButtonTrigger.GetStateDown(pose.inputSource) && buttonInteractable != null)
         {
-            buttonInteracatble.setColorToCode();
+            buttonInteractable.setColorToCode();
 
-            buttonInteracatble = null;
+            //buttonInteractable = null;
         }
 
         if (grabAction.GetStateDown(pose.inputSource))
@@ -86,6 +87,13 @@ public class Hand : MonoBehaviour
             {
                 DropObject();
             }
+        }
+
+        if (triggerAction.GetStateDown(pose.inputSource) && radioInteractable != null)
+        {
+            radioInteractable.activateRadio();
+
+            //radioInteractable = null;
         }
     }
 
@@ -103,12 +111,17 @@ public class Hand : MonoBehaviour
 
         if (other.gameObject.CompareTag("Door"))
         {
-            doorInteracatble = other.gameObject.GetComponent<Door>();
+            doorInteractable = other.gameObject.GetComponent<Door>();
         }
 
         if (other.gameObject.CompareTag("Button"))
         {
-            buttonInteracatble = other.gameObject.GetComponent<Button>();
+            buttonInteractable = other.gameObject.GetComponent<Button>();
+        }
+
+        if (other.gameObject.CompareTag("Radio"))
+        {
+            radioInteractable = other.gameObject.GetComponent<Radio>();
         }
     }
 
@@ -126,7 +139,17 @@ public class Hand : MonoBehaviour
 
         if (other.gameObject.CompareTag("Door"))
         {
-            doorInteracatble = null;
+            doorInteractable = null;
+        }
+
+        if (other.gameObject.CompareTag("Button"))
+        {
+            buttonInteractable = null;
+        }
+
+        if (other.gameObject.CompareTag("Radio"))
+        {
+            radioInteractable = null;
         }
     }
 

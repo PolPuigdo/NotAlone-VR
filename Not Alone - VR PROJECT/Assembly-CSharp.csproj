@@ -74,7 +74,7 @@
     <Compile Include="Assets\Scripts\FlashLightController.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
-    <Compile Include="Assets\Scripts\RadioController.cs" />
+    <Compile Include="Assets\Scripts\Radio.cs" />
     <Compile Include="Assets\Scripts\TouchPadMovement.cs" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />

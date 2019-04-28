@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Cassete
   - FlashLight
+  - Radio
   layers:
   - Default
   - TransparentFX

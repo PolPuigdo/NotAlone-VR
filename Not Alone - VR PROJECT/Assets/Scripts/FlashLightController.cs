@@ -9,7 +9,6 @@ public class FlashLightController : MonoBehaviour
     public GameObject lightF; 
     private bool isOn = false; 
 
-
     [HideInInspector]
     public Hand activeHand = null;
 
