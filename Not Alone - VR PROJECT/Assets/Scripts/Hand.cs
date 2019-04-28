@@ -158,7 +158,7 @@ public class Hand : MonoBehaviour
 
         // Check if it's already held
         if (objectInteractable.activeHand)
-            objectInteractable.activeHand.DropFlashLight();
+            objectInteractable.activeHand.DropObject();
 
         // Set the position to the same as the controller
         objectInteractable.ApplyOffset(transform);
