@@ -70,6 +70,8 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\DoorWithKey.cs" />
+    <Compile Include="Assets\Scripts\Engine.cs" />
     <Compile Include="Assets\Scripts\EnigmaColorsController.cs" />
     <Compile Include="Assets\Scripts\FlashLightController.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
