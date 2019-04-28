@@ -22,10 +22,17 @@ public class Hand : MonoBehaviour
     private Door doorInteracatble = null;
     private Button buttonInteracatble = null;
 
+    Collider controllerCollider;
+
     private void Awake()
     {
         pose = GetComponent<SteamVR_Behaviour_Pose>();
         joint = GetComponent<FixedJoint>();
+    }
+
+    private void Start()
+    {
+        controllerCollider = GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -69,7 +76,7 @@ public class Hand : MonoBehaviour
             buttonInteracatble = null;
         }
 
-        if (grabAction.GetStateDown(pose.inputSource) && objectInteractable != null)
+        if (grabAction.GetStateDown(pose.inputSource))
         {
             if (objectInteractable == null)
             {
@@ -77,7 +84,7 @@ public class Hand : MonoBehaviour
             }
             else
             {
-                DropFlashLight();
+                DropObject();
             }
         }
     }

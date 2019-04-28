@@ -46,4 +46,6 @@ public class FlashLightController : MonoBehaviour
         transform.localPosition = offset;
         transform.SetParent(null);
     }
+
+    
 }
