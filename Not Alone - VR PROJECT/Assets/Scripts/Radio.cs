@@ -5,7 +5,7 @@ using UnityEngine;
 public class Radio : MonoBehaviour
 {
     private bool hasCassette = false;
-   
+    public bool hasElectricity = false;
 
     private AudioSource[] radioAudios; //0-Button 1-Interferences 2-Red 3-Green 4-Blue
 
@@ -30,14 +30,17 @@ public class Radio : MonoBehaviour
 
     public virtual void activateRadio()
     {
-        if (hasCassette)
+        if (hasElectricity)
         {
-            StartCoroutine(cassetteAction());
-        }
-        else
-        {
-            radioAudios[0].Play();
-            noCassetteAction();
+            if (hasCassette)
+            {
+                StartCoroutine(cassetteAction());
+            }
+            else
+            {
+                radioAudios[0].Play();
+                noCassetteAction();
+            }
         }
     }
 

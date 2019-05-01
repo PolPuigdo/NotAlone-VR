@@ -5,6 +5,8 @@ using UnityEngine;
 public class Engine : MonoBehaviour
 {
     private AudioSource[] engineAudios; //0-Starting 1-Working
+    public LightController lightController;
+    public Radio radio;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +28,10 @@ public class Engine : MonoBehaviour
         engineAudios[0].Play();
         yield return new WaitForSeconds(engineAudios[0].clip.length);
 
+        lightController.turnLightsON();
 
-        //LIGHT CODE HERE
+        //Activates the radio
+        radio.hasElectricity = true;
 
         engineAudios[1].Play();
         yield return new WaitForSeconds(engineAudios[1].clip.length);
