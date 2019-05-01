@@ -32,13 +32,15 @@ public class LightTrigger : MonoBehaviour
             lightController.turnLightsOFF();
 
             //Close door
-            door.openCloseAnim.SetBool("open", false);
-            door.audioDoor[0].PlayDelayed(0.55f);
-            door.openable = false;
+            door.CloseDoor();
+
+            //Better to let the player enter again to the init room
+            //cause if he doesn't take the gear with him, he would get stuck
+            //door.openable = false;
 
             //Start playing ambiental music
             //Not sure if this music fits the enviroment good enough
-            //musicController.playNormal();
+            musicController.playNormal();
 
             //Destroy object
             Destroy(gameObject);

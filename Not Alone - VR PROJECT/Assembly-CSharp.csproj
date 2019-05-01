@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Candles\scripts\ExtendedFlycam.cs" />
     <Compile Include="Assets\Map\GarageGarden ToolsObjects\Scripts\CameraController.cs" />
     <Compile Include="Assets\Map\Water\Standard Assets\Environment\Water (Basic)\Scripts\WaterBasic.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
@@ -70,6 +71,8 @@
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Vertex Colors\HighlightNearestFace.cs" />
     <Compile Include="Assets\Scripts\AmbientalMusic.cs" />
     <Compile Include="Assets\Scripts\Button.cs" />
+    <Compile Include="Assets\Scripts\CameraFacing.cs" />
+    <Compile Include="Assets\Scripts\Candle.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DoorWithKey.cs" />
     <Compile Include="Assets\Scripts\Engine.cs" />
@@ -80,9 +83,11 @@
     <Compile Include="Assets\Scripts\LightTrigger.cs" />
     <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
     <Compile Include="Assets\Scripts\Radio.cs" />
+    <Compile Include="Assets\Scripts\RitalEnigmaController.cs" />
     <Compile Include="Assets\Scripts\TouchPadMovement.cs" />
     <Compile Include="Assets\Scripts\Vase.cs" />
     <Compile Include="Assets\Scripts\VaseEnigmaController.cs" />
+    <None Include="Assets\Candles\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_TransparentOverlay.shader" />
     <None Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\README.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />

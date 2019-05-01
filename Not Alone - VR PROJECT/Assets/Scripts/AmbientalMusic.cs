@@ -18,7 +18,7 @@ public class AmbientalMusic : MonoBehaviour
         
     }
 
-    public void playNormal()
+    public virtual void playNormal()
     {
         if (ambientalMusics[1].isPlaying)
         {

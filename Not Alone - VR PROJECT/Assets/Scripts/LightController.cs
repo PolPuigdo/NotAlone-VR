@@ -18,7 +18,7 @@ public class LightController : MonoBehaviour
         
     }
 
-    public void turnLightsON()
+    public virtual void turnLightsON()
     {
         foreach (GameObject light in lights)
         {
@@ -26,7 +26,7 @@ public class LightController : MonoBehaviour
         }
     }
 
-    public void turnLightsOFF()
+    public virtual void turnLightsOFF()
     {
         foreach (GameObject light in lights)
         {
