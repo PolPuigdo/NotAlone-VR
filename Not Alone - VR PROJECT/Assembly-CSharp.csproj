@@ -83,7 +83,7 @@
     <Compile Include="Assets\Scripts\LightTrigger.cs" />
     <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
     <Compile Include="Assets\Scripts\Radio.cs" />
-    <Compile Include="Assets\Scripts\RitalEnigmaController.cs" />
+    <Compile Include="Assets\Scripts\RitualEnigmaController.cs" />
     <Compile Include="Assets\Scripts\TouchPadMovement.cs" />
     <Compile Include="Assets\Scripts\Vase.cs" />
     <Compile Include="Assets\Scripts\VaseEnigmaController.cs" />
