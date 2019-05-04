@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\FlashLightController.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
     <Compile Include="Assets\Scripts\LightController.cs" />
+    <Compile Include="Assets\Scripts\Lighter.cs" />
     <Compile Include="Assets\Scripts\LightTrigger.cs" />
     <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
     <Compile Include="Assets\Scripts\Radio.cs" />

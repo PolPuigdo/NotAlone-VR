@@ -16,12 +16,16 @@ public class Hand : MonoBehaviour
     private FlashLightController flashLightInteractable = null;
     private List<FlashLightController> flashInteractables = new List<FlashLightController>();
 
+    private Lighter lighterInteractable = null;
+    private List<Lighter> lighterInteractables = new List<Lighter>();
+
     private ObjectPickUpAble objectInteractable = null;
     private List<ObjectPickUpAble> objectInteractables = new List<ObjectPickUpAble>();
 
     private Door doorInteractable = null;
     private Button buttonInteractable = null;
     private Radio radioInteractable = null;
+    
 
     Collider controllerCollider;
 
@@ -61,6 +65,11 @@ public class Hand : MonoBehaviour
             {
                 flashLightInteractable.changeLight();
             }
+        }
+
+        if (triggerAction.GetLastStateDown(pose.inputSource) && lighterInteractable != null)
+        {
+            lighterInteractable.lighterAction();
         }
 
         if (doorTrigger.GetStateDown(pose.inputSource) && doorInteractable != null)
@@ -104,6 +113,11 @@ public class Hand : MonoBehaviour
             flashInteractables.Add(other.gameObject.GetComponent<FlashLightController>());
         }
 
+        if (other.gameObject.CompareTag("Lighter"))
+        {
+            lighterInteractables.Add(other.gameObject.GetComponent<Lighter>());
+        }
+
         if (other.gameObject.CompareTag("PickDrop"))
         {
             objectInteractables.Add(other.gameObject.GetComponent<ObjectPickUpAble>());
@@ -130,6 +144,11 @@ public class Hand : MonoBehaviour
         if (other.gameObject.CompareTag("FlashLight"))
         {
             flashInteractables.Remove(other.gameObject.GetComponent<FlashLightController>());
+        }
+
+        if (other.gameObject.CompareTag("Lighter"))
+        {
+            lighterInteractables.Remove(other.gameObject.GetComponent<Lighter>());
         }
 
         if (other.gameObject.CompareTag("PickDrop"))
@@ -201,6 +220,30 @@ public class Hand : MonoBehaviour
         objectInteractable.activeHand = this;
     }
 
+    public void PickUpLighter()
+    {
+        // Get the nearest one
+        lighterInteractable = GetNearestLighter();
+
+        // Check if it's null
+        if (!lighterInteractable)
+            return;
+
+        // Check if it's already held
+        if (lighterInteractable.activeHand)
+            lighterInteractable.activeHand.DropLighter();
+
+        // Set the position to the same as the controller
+        lighterInteractable.ApplyOffset(transform);
+
+        // Atach the object
+        Rigidbody targetBody = lighterInteractable.GetComponent<Rigidbody>();
+        joint.connectedBody = targetBody;
+
+        //Set this hand to active
+        lighterInteractable.activeHand = this;
+    }
+
     public void DropFlashLight()
     {
         // Check if it's null
@@ -216,6 +259,23 @@ public class Hand : MonoBehaviour
         joint.connectedBody = null;
         flashLightInteractable.activeHand = null;
         flashLightInteractable = null;
+    }
+
+    public void DropLighter()
+    {
+        // Check if it's null
+        if (!lighterInteractable)
+            return;
+
+        // Apply the velocity
+        Rigidbody targetBody = lighterInteractable.GetComponent<Rigidbody>();
+        targetBody.velocity = pose.GetVelocity();
+        targetBody.angularVelocity = pose.GetAngularVelocity();
+
+        // Detach nad set variables to null
+        joint.connectedBody = null;
+        lighterInteractable.activeHand = null;
+        lighterInteractable = null;
     }
 
     public void DropObject()
@@ -262,6 +322,26 @@ public class Hand : MonoBehaviour
         float distance = 0.0f;
 
         foreach (ObjectPickUpAble interactable in objectInteractables)
+        {
+            distance = (interactable.transform.position - transform.position).sqrMagnitude;
+
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearest = interactable;
+            }
+        }
+
+        return nearest;
+    }
+
+    private Lighter GetNearestLighter()
+    {
+        Lighter nearest = null;
+        float minDistance = float.MaxValue;
+        float distance = 0.0f;
+
+        foreach (Lighter interactable in lighterInteractables)
         {
             distance = (interactable.transform.position - transform.position).sqrMagnitude;
 
