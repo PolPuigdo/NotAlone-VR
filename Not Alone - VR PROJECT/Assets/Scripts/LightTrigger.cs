@@ -21,25 +21,39 @@ public class LightTrigger : MonoBehaviour
     {
         if (other.gameObject.tag.Contains("Player"))
         {
-            //Play sound
-            tensionSound.Play();
+            
 
-            //Close lights
-            lightController.turnLightsOFF();
-
-            //Close door
-            door.CloseDoor();
-
+            
             //Better to let the player enter again to the init room
             //cause if he doesn't take the gear with him, he would get stuck
             //door.openable = false;
 
-            //Start playing ambiental music
-            //Not sure if this music fits the enviroment good enough
-            musicController.playNormal();
+            //Play sound
+            StartCoroutine(playSounds());
 
-            //Destroy object
-            Destroy(gameObject);
+            
         }
+    }
+
+    private IEnumerator playSounds()
+    {
+        //Close lights
+        lightController.turnLightsOFF();
+
+        //Close door
+        door.CloseDoor();
+
+        tensionSound.Play();
+        yield return new WaitForSeconds(tensionSound.clip.length);
+
+
+        //Start playing ambiental music
+        //Not sure if this music fits the enviroment good enough
+        musicController.playNormal();
+        yield return new WaitForSeconds(0.1f);
+
+        //Destroy object
+        Destroy(gameObject);
+        yield return new WaitForSeconds(0);
     }
 }
