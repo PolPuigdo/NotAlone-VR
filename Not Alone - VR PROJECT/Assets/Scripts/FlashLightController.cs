@@ -43,8 +43,10 @@ public class FlashLightController : MonoBehaviour
         transform.SetParent(hand);
         transform.localRotation = Quaternion.Euler(-90, 180, 0); //Changing the angle because it was vertically by default
         transform.localPosition = offset;
-        transform.SetParent(null);
     }
 
-    
+    public void CancelOffset()
+    {
+        transform.SetParent(null);
+    }
 }

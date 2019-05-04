@@ -26,6 +26,10 @@ public class ObjectPickUpAble : MonoBehaviour
         transform.SetParent(hand);
         transform.localRotation = Quaternion.Euler(-90, 90, 0); //Changing the angle because it was vertically by default
         transform.localPosition = offset;
+    }
+
+    public void CancelOffset()
+    {
         transform.SetParent(null);
     }
 }

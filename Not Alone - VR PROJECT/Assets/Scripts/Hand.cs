@@ -270,6 +270,9 @@ public class Hand : MonoBehaviour
         targetBody.velocity = pose.GetVelocity();
         targetBody.angularVelocity = pose.GetAngularVelocity();
 
+        // The object parent goes to null again
+        flashLightInteractable.CancelOffset();
+
         // Detach nad set variables to null
         joint.connectedBody = null;
         flashLightInteractable.activeHand = null;
@@ -287,6 +290,9 @@ public class Hand : MonoBehaviour
         targetBody.velocity = pose.GetVelocity();
         targetBody.angularVelocity = pose.GetAngularVelocity();
 
+        // The object parent goes to null again
+        lighterInteractable.CancelOffset();
+
         // Detach nad set variables to null
         joint.connectedBody = null;
         lighterInteractable.activeHand = null;
@@ -303,6 +309,9 @@ public class Hand : MonoBehaviour
         Rigidbody targetBody = objectInteractable.GetComponent<Rigidbody>();
         targetBody.velocity = pose.GetVelocity();
         targetBody.angularVelocity = pose.GetAngularVelocity();
+
+        // The object parent goes to null again
+        objectInteractable.CancelOffset();
 
         // Detach nad set variables to null
         joint.connectedBody = null;
