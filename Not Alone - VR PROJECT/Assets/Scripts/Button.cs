@@ -7,17 +7,6 @@ public class Button : MonoBehaviour
     public string color;
     public EnigmaColorsController controller;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public virtual void setColorToCode()
     {

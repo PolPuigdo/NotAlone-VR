@@ -15,11 +15,7 @@ public class LightTrigger : MonoBehaviour
         tensionSound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     private void OnTriggerEnter(Collider other)
     {

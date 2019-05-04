@@ -20,12 +20,6 @@ public class EnigmaColorsController : MonoBehaviour
         correctSound = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual void setColor(string color)
     {
         codeColor += ""+color;

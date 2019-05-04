@@ -32,11 +32,6 @@ public class FlashLightController : MonoBehaviour
         GetComponent<AudioSource>().Play(); //Button sound
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void ApplyOffset(Transform hand)
     {

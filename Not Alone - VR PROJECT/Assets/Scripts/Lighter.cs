@@ -20,11 +20,6 @@ public class Lighter : MonoBehaviour
         lightOff();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void lighterAction()
     {

@@ -49,9 +49,4 @@ public class Door : MonoBehaviour
         isOpen = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

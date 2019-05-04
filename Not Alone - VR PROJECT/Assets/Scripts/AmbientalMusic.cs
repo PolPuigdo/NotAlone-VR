@@ -12,12 +12,6 @@ public class AmbientalMusic : MonoBehaviour
         ambientalMusics = GetComponents<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual void playNormal()
     {
         if (ambientalMusics[1].isPlaying)

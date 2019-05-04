@@ -16,12 +16,6 @@ public class VaseEnigmaController : MonoBehaviour
         key.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public virtual void breakVase()
     {
         Destroy(vaseNormal);
