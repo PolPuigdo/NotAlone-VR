@@ -8,6 +8,7 @@ public class Candle : MonoBehaviour
     public GameObject flameLight;
     public Material emissionSourceMaterial;
     public bool isLight = false;
+    public Lighter lighter;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class Candle : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Lighter")
+        if (collision.gameObject.name == "Lighter" && lighter.isOn)
         {
             lightCandle();
         }

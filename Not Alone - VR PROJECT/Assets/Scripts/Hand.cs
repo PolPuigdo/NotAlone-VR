@@ -59,6 +59,21 @@ public class Hand : MonoBehaviour
             
         }
 
+        if (grabAction.GetLastStateDown(pose.inputSource))
+        {
+            //On click if it has no value picks the object
+            if (lighterInteractable == null)
+            {
+                PickUpLighter();
+            }
+            // If it has a value (an object held) it drops it
+            else
+            {
+                DropLighter();
+            }
+
+        }
+
         if (flashLightInteractable != null)
         {
             if (triggerAction.GetStateDown(pose.inputSource)) //Trigger calls Light method

@@ -7,7 +7,7 @@ public class Lighter : MonoBehaviour
     public GameObject flame;
     public GameObject lightFlame;
     public Vector3 offset = Vector3.zero;
-    private bool isOn = false;
+    public bool isOn = false;
     private AudioSource lighterOnSound;
 
     [HideInInspector]
@@ -39,9 +39,10 @@ public class Lighter : MonoBehaviour
 
     private void lightUp()
     {
-        lighterOnSound.Play();
-
         isOn = true;
+
+        lighterOnSound.Play();
+        
         flame.SetActive(true);
         lightFlame.SetActive(true);
     }
@@ -49,6 +50,7 @@ public class Lighter : MonoBehaviour
     private void lightOff()
     {
         isOn = false;
+
         flame.SetActive(false);
         lightFlame.SetActive(false);
     }
@@ -56,7 +58,8 @@ public class Lighter : MonoBehaviour
     public void ApplyOffset(Transform hand)
     {
         transform.SetParent(hand);
-        transform.localRotation = Quaternion.Euler(-90, 90, 0); //Changing the angle because it was vertically by default
+        transform.localRotation = Quaternion.Euler(-90, 90, 90); //Changing the angle
+        offset.y += 1.4f;
         transform.localPosition = offset;
         transform.SetParent(null);
     }
