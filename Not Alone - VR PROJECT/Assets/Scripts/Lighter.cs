@@ -58,8 +58,7 @@ public class Lighter : MonoBehaviour
     public void ApplyOffset(Transform hand)
     {
         transform.SetParent(hand);
-        transform.localRotation = Quaternion.Euler(-90, 90, 90); //Changing the angle
-        offset.y += 1.4f;
+        transform.localRotation = Quaternion.Euler(0, 180, 0); //Changing the angle
         transform.localPosition = offset;
         transform.SetParent(null);
     }
