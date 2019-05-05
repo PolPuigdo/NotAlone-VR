@@ -9,6 +9,7 @@ public class Candle : MonoBehaviour
     public Material emissionSourceMaterial;
     public bool isLight = false;
     public Lighter lighter;
+    public RitualEnigmaController controller;
 
     // Start is called before the first frame update
     void Start()
@@ -33,5 +34,7 @@ public class Candle : MonoBehaviour
         flame.SetActive(true);
         flameLight.SetActive(true);
         isLight = true;
+
+        controller.sumCandle();
     }
 }
