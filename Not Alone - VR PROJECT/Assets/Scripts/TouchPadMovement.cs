@@ -6,19 +6,70 @@ public class TouchPadMovement : MonoBehaviour
 {
     public GameObject player;
     public SteamVR_Action_Vector2 touchPadAction;
+    private SteamVR_Behaviour_Pose pose = null;
+
+    public Vector3 speedX;
+    public Vector3 speedZ;
 
     private bool isRightFoot = true;
 
-    // Executes once per frame
-    void Update()
+
+    /*private void Awake()
+    {
+        pose = GetComponent<SteamVR_Behaviour_Pose>();
+    }*/
+
+
+    void FixedUpdate()
     {
         //do
         //{
-            //Read the touchpad values
+        //Read the touchpad values
+        Vector2 touchpad = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
+
+        // Move 
+        player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement on x and y
+        player.transform.position = new Vector3(player.transform.position.x, 20.734f, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
+
+        if (!GetComponent<AudioSource>().isPlaying && SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
+        {
+            PlayFootSteps();
+        }
+
+        //} while (SteamVR_Actions._default.PressTouchPad.GetStateUp(SteamVR_Input_Sources.Any)); //while the touchpad detects the finger(touch)
+    }
+
+
+    // Executes once per frame
+    /*void Update()
+    {
+
+        if (touchPadAction.GetActive(pose.inputSource))
+        {
             Vector2 touchpad = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
+            speedX = Camera.main.transform.right * touchpad.x;
+            speedZ = Camera.main.transform.forward * touchpad.y;
+
+
+
+            movePlayer(speedX, speedZ);
+        }
+
+        /*if (SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
+        {
+            movePlayer();
+        }
+
+
+
+
+        //do
+        //{
+            //Read the touchpad values
+            //Vector2 touchpad = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
 
             // Move 
-            player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement on x and y
+            /*player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement on x and y
             player.transform.position = new Vector3(player.transform.position.x, 20.034f, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
 
             if (!GetComponent<AudioSource>().isPlaying && SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
@@ -27,7 +78,14 @@ public class TouchPadMovement : MonoBehaviour
             }
 
         //} while (SteamVR_Actions._default.PressTouchPad.GetStateUp(SteamVR_Input_Sources.Any)); //while the touchpad detects the finger(touch)
-    }
+    }*/
+
+    /*private void movePlayer(Vector3 speedX, Vector3 speedZ)
+    {
+        // Move 
+        player.transform.position += (speedX + speedZ) * Time.deltaTime * 1.5f; //Movement on x and y
+        player.transform.position = new Vector3(player.transform.position.x, 20.034f, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
+    }*/
 
 
 
@@ -51,4 +109,48 @@ public class TouchPadMovement : MonoBehaviour
 
         GetComponent<AudioSource>().Play();
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        var relativePosition = transform.InverseTransformPoint(collision.GetContact(0).normal);
+
+        if (relativePosition.x > 0)
+        {
+            //print(“The object is to the right”);
+        }
+        else
+        {
+            //print(“The object is to the left”);
+        }
+
+        if (relativePosition.z > 0)
+        {
+            //print(“The object is in front.”);
+        }
+        else
+        {
+            //print(“The object is behind.”);
+        }
+    }
 }
+
+/* 
+ void Update()
+    {
+        //do
+        //{
+            //Read the touchpad values
+            Vector2 touchpad = touchPadAction.GetAxis(SteamVR_Input_Sources.Any);
+
+            // Move 
+            player.transform.position += (Camera.main.transform.right * touchpad.x + Camera.main.transform.forward * touchpad.y) * Time.deltaTime * 1.5f; //Movement on x and y
+            player.transform.position = new Vector3(player.transform.position.x, 20.034f, player.transform.position.z); //Set the player in the ground. The y is at 20 because the terrain heigh is 20
+
+            if (!GetComponent<AudioSource>().isPlaying && SteamVR_Actions._default.Movement.GetChanged(SteamVR_Input_Sources.Any))
+            {
+                PlayFootSteps();
+            }
+
+        //} while (SteamVR_Actions._default.PressTouchPad.GetStateUp(SteamVR_Input_Sources.Any)); //while the touchpad detects the finger(touch)
+    }
+     */

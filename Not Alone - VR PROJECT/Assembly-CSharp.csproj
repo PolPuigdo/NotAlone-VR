@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Lighter.cs" />
     <Compile Include="Assets\Scripts\LightTrigger.cs" />
     <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
+    <Compile Include="Assets\Scripts\PlayerCollisions.cs" />
     <Compile Include="Assets\Scripts\Radio.cs" />
     <Compile Include="Assets\Scripts\RitualEnigmaController.cs" />
     <Compile Include="Assets\Scripts\ScareCrowController.cs" />
