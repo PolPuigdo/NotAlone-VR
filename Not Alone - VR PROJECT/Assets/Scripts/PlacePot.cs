@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlacePot : MonoBehaviour
 {
     //The itHas bool prevents the player from putting 2 or more pots in the same spot
-    public bool itHas = false;
+    private bool itHas = false;
 
     public RitualEnigmaController controller;
 
