@@ -83,6 +83,8 @@
     <Compile Include="Assets\Scripts\LightController.cs" />
     <Compile Include="Assets\Scripts\Lighter.cs" />
     <Compile Include="Assets\Scripts\LightTrigger.cs" />
+    <Compile Include="Assets\Scripts\NumberButton.cs" />
+    <Compile Include="Assets\Scripts\NumberShadowScript.cs" />
     <Compile Include="Assets\Scripts\ObjectPickUpAble.cs" />
     <Compile Include="Assets\Scripts\PlacePot.cs" />
     <Compile Include="Assets\Scripts\Radio.cs" />

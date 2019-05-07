@@ -24,6 +24,7 @@ public class Hand : MonoBehaviour
 
     private Door doorInteractable = null;
     private Button buttonInteractable = null;
+    private NumberButton numButtonInteractable = null;
     private Radio radioInteractable = null;
     
 
@@ -90,15 +91,19 @@ public class Hand : MonoBehaviour
         if (doorTrigger.GetStateDown(pose.inputSource) && doorInteractable != null)
         {
             doorInteractable.DoorAction();
-
-            //doorInteractable = null;
+            
         }
         
         if (colorButtonTrigger.GetStateDown(pose.inputSource) && buttonInteractable != null)
         {
             buttonInteractable.setColorToCode();
+            
+        }
 
-            //buttonInteractable = null;
+        if (colorButtonTrigger.GetStateDown(pose.inputSource) && numButtonInteractable != null)
+        {
+            numButtonInteractable.setNumberToCode();
+            
         }
 
         if (grabAction.GetStateDown(pose.inputSource))
@@ -148,6 +153,11 @@ public class Hand : MonoBehaviour
             buttonInteractable = other.gameObject.GetComponent<Button>();
         }
 
+        if (other.gameObject.CompareTag("NumButton"))
+        {
+            numButtonInteractable = other.gameObject.GetComponent<NumberButton>();
+        }
+
         if (other.gameObject.CompareTag("Radio"))
         {
             radioInteractable = other.gameObject.GetComponent<Radio>();
@@ -179,6 +189,11 @@ public class Hand : MonoBehaviour
         if (other.gameObject.CompareTag("Button"))
         {
             buttonInteractable = null;
+        }
+
+        if (other.gameObject.CompareTag("NumButton"))
+        {
+            numButtonInteractable = null;
         }
 
         if (other.gameObject.CompareTag("Radio"))

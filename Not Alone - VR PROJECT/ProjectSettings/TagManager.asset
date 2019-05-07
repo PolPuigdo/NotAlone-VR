@@ -11,6 +11,7 @@ TagManager:
   - FlashLight
   - Radio
   - Lighter
+  - NumButton
   layers:
   - Default
   - TransparentFX
