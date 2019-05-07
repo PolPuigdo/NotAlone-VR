@@ -41,6 +41,9 @@ public class Radio : MonoBehaviour
                 radioAudios[0].Play();
                 noCassetteAction();
             }
+        } else
+        {
+            radioAudios[0].Play();
         }
     }
 
