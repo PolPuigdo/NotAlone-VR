@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\Radio.cs" />
     <Compile Include="Assets\Scripts\RitualEnigmaController.cs" />
     <Compile Include="Assets\Scripts\ScareCrowController.cs" />
+    <Compile Include="Assets\Scripts\ShowTextController.cs" />
     <Compile Include="Assets\Scripts\TouchPadMovement.cs" />
     <Compile Include="Assets\Scripts\Vase.cs" />
     <Compile Include="Assets\Scripts\VaseEnigmaController.cs" />
